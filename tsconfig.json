@@ -1,0 +1,10 @@
+{
+  "extends": "@labforward/config/tsconfig",
+
+  "compilerOptions": {
+    "baseUrl": "app/javascript",
+    "lib": ["es2020", "dom"]
+  },
+
+  "exclude": ["node_modules", "vendor", "public"]
+}
