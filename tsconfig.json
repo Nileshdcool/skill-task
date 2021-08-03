@@ -2,6 +2,7 @@
   "extends": "@labforward/config/tsconfig",
 
   "compilerOptions": {
+    "jsx": "react",
     "baseUrl": "app/javascript",
     "lib": ["es2020", "dom"]
   },

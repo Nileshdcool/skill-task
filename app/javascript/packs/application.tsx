@@ -10,6 +10,7 @@ import Rails from '@rails/ujs';
 
 import Routes from 'routes';
 
+
 Rails.start();
 
 ReactDOM.render(<Routes />, document.getElementById('react-root'));
