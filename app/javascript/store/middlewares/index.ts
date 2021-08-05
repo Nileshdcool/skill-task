@@ -3,7 +3,6 @@ import { apiFetchSucceeded } from '../actions';
 import { State } from '../reducers';
 import toParams from './toParams';
 import http from 'store/http-common';
-import moment from 'moment';
 
 const middleware: Middleware<unknown, State> =
   (state) => (next) => (action) => {
@@ -12,7 +11,6 @@ const middleware: Middleware<unknown, State> =
       `/${action.payload.model}.json?${toParams(action.payload.params)}`,
     ).then(async (response) => {
       response.data = response.data.map((c:any)=>{
-        debugger;
         if (c.value) {
           c.value = c.value.toFixed(2);
         }

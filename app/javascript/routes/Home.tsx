@@ -1,15 +1,12 @@
 import { FC, Fragment, useEffect, useState } from 'react';
-import { useDispatch, useSelector, useStore } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import _ from 'lodash';
-import { CartesianGrid, Legend, Line, LineChart, Tooltip, XAxis, YAxis } from 'recharts';
+import { CartesianGrid, Line, LineChart, XAxis, YAxis } from 'recharts';
 import { apiFetchRequested } from 'store/actions';
 import { Channel, State } from 'store/reducers';
 import React from 'react';
-import { Badge, Button, Card, CardBody, CardImg, CardSubtitle, CardText, CardTitle, Col, Container, Row, Spinner } from 'reactstrap';
+import { Badge, Card, CardBody, CardSubtitle, CardTitle, Col, Container, Row, Spinner } from 'reactstrap';
 import moment from 'moment'
-import CustomTooltip from 'components/CustomTooltop';
-
-
 
 const Home: FC = () => {
   const channels = useSelector((state: State) => state.channels, _.isEqual);
@@ -25,11 +22,6 @@ const Home: FC = () => {
     dispatch(apiFetchRequested('data_points'));
     setIsLoading(false);
   }, []);
-
-
-  
-
-  
 
   const renderLineChart = (channel: Channel) => {
     const result = _.values(_.filter(dataPoints, { channelId: channel.id }));
@@ -51,8 +43,6 @@ const Home: FC = () => {
   }
 
   function formatXAxis(tickItem:any) {
-    debugger;
-    // If using moment.js
     return moment(tickItem).format('MMM Do YY')
     }
 
